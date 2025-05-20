@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-18 13:28:49.301619",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "doctor_name",
+  "column_break_onqd",
+  "is_active",
+  "qualification_info_section",
+  "specialization",
+  "column_break_jykr",
+  "qualification",
+  "communication_section",
+  "email",
+  "column_break_annv",
+  "mobile_number",
+  "availability_section",
+  "column_break_thxl",
+  "available_days",
+  "column_break_djas",
+  "available_hours",
+  "section_break_osdq",
+  "additional_info"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Info"
+  },
+  {
+   "fieldname": "column_break_onqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active "
+  },
+  {
+   "fieldname": "qualification_info_section",
+   "fieldtype": "Section Break",
+   "label": "Qualification Info"
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Select",
+   "label": "Specialization",
+   "options": "Cardiologist\nDentist"
+  },
+  {
+   "fieldname": "column_break_jykr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "label": "Qualification"
+  },
+  {
+   "fieldname": "communication_section",
+   "fieldtype": "Section Break",
+   "label": "Communication"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_annv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile number"
+  },
+  {
+   "fieldname": "availability_section",
+   "fieldtype": "Section Break",
+   "label": "Availability"
+  },
+  {
+   "fieldname": "column_break_thxl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_djas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "available_hours",
+   "fieldtype": "Int",
+   "label": "Available Hours"
+  },
+  {
+   "fieldname": "section_break_osdq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additional_info",
+   "fieldtype": "Long Text",
+   "label": "Additional Info"
+  },
+  {
+   "fieldname": "available_days",
+   "fieldtype": "Table MultiSelect",
+   "label": "Available Days",
+   "options": "Doctor Available Days"
+  },
+  {
+   "fieldname": "doctor_name",
+   "fieldtype": "Data",
+   "label": "Doctor Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-18 15:02:50.804234",
+ "modified_by": "Administrator",
+ "module": "Healthcare Management",
+ "name": "Doctor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

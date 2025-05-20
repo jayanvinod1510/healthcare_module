@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-18 13:51:35.482395",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "doctor",
+  "doctor_name",
+  "column_break_ndnq",
+  "status",
+  "patient_info_section",
+  "patient_id",
+  "column_break_mtex",
+  "patient_name",
+  "appointment_details_section",
+  "date",
+  "column_break_pkov",
+  "time",
+  "durationminutes",
+  "misc_section",
+  "reason",
+  "column_break_bbdl",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Info"
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Link",
+   "label": "Doctor",
+   "options": "Doctor"
+  },
+  {
+   "fieldname": "column_break_ndnq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Scheduled\nCompleted\nCancelled\nNo-Show"
+  },
+  {
+   "fieldname": "patient_info_section",
+   "fieldtype": "Section Break",
+   "label": "Patient Info"
+  },
+  {
+   "fieldname": "patient_id",
+   "fieldtype": "Link",
+   "label": "Patient ID",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_mtex",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "patient_id.full_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "appointment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Appointment Details"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_pkov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "durationminutes",
+   "fieldtype": "Int",
+   "label": "Duration(Minutes)"
+  },
+  {
+   "fieldname": "misc_section",
+   "fieldtype": "Section Break",
+   "label": "Misc"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Long Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "column_break_bbdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  },
+  {
+   "fetch_from": "doctor.doctor_name",
+   "fieldname": "doctor_name",
+   "fieldtype": "Data",
+   "label": "Doctor Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-18 15:04:08.664764",
+ "modified_by": "Administrator",
+ "module": "Healthcare Management",
+ "name": "Medical Appointment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
