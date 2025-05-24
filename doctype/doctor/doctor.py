@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe import _
 
 
 class Doctor(Document):
@@ -63,3 +64,43 @@ def custom_login(usr, pwd):
             "message": "Login failed",
             "error": "Invalid username or password"
         }
+
+@frappe.whitelist(allow_guest=True)
+def get_user_details(id_token, password):
+    try:
+        from firebase_admin import auth
+        import firebase_admin
+        from firebase_admin import credentials
+        from frappe.auth import LoginManager
+        if not firebase_admin._apps:
+            cred = credentials.Certificate("/Users/user/w-saas/frappe-bench/sites/firebase_service_account.json")
+            firebase_admin.initialize_app(cred)
+        # 1. Verify Firebase Token
+        decoded_token = auth.verify_id_token(id_token)
+        email = decoded_token.get('email')
+
+        if not email:
+            frappe.throw(_("No email in Firebase token"))
+
+        # 2. Lookup User
+        user = frappe.get_value("User", {"email": email})
+        if not user:
+            frappe.throw(_("No matching user found in Frappe for this email"))
+
+
+        # 3. Validate password
+        login_manager = LoginManager()
+        login_manager.authenticate(user=user, pwd=password)
+        login_manager.post_login()
+        sid = frappe.local.session.sid
+        # frappe.set_user(user)
+
+        return {
+            "message": "Login successful",
+            "sid": sid,
+            "user": frappe.session.user
+        }
+
+    except Exception as e:
+        frappe.log_error(str(e), "Double Login Failed")
+        frappe.throw(_("Authentication failed: ") + str(e))
